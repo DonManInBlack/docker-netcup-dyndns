@@ -1,0 +1,6 @@
+[submodule "dynamic-dns-netcup-api"]
+	path = dynamic-dns-netcup-api
+	url = https://github.com/stecklars/dynamic-dns-netcup-api
+[submodule "netcup"]
+	path = netcup
+	url = https://github.com/stecklars/dynamic-dns-netcup-api

@@ -1,13 +1,13 @@
 #!/bin/bash
 
-sed -i "s/('CUSTOMERNR', '12345')/('CUSTOMERNR', '${CUSTOMERNR}')/g" /netcup/config.php
-sed -i "s/('APIKEY', 'abcdefghijklmnopqrstuvwxyz')/('APIKEY', '${APIKEY}')/g" /netcup/config.php
-sed -i "s/('APIPASSWORD', 'abcdefghijklmnopqrstuvwxyz')/('APIPASSWORD', '${APIPASSWORD}')/g" /netcup/config.php
-sed -i "s/('DOMAIN', 'mydomain.com')/('DOMAIN', '${DOMAIN}')/g" /netcup/config.php
-sed -i "s/('HOST', 'server')/('HOST', '${HOST}')/g" /netcup/config.php
-sed -i "s/('USE_IPV6', false)/('USE_IPV6', '${USE_IPV6}')/g" /netcup/config.php
-sed -i "s/('CHANGE_TTL', true)/('CHANGE_TTL', '${CHANGE_TTL}')/g" /netcup/config.php
-sed -i "s~('APIURL', 'https://ccp.netcup.net/run/webservice/servers/endpoint.php?JSON')~('APIURL', '"${APIURL}"')~g" /netcup/config.php
+sed -i "s/('CUSTOMERNR', '12345')/('CUSTOMERNR', '${CUSTOMERNR//\//\\/}')/g" /netcup/config.php
+sed -i "s/('APIKEY', 'abcdefghijklmnopqrstuvwxyz')/('APIKEY', '${APIKEY//\//\\/}')/g" /netcup/config.php
+sed -i "s/('APIPASSWORD', 'abcdefghijklmnopqrstuvwxyz')/('APIPASSWORD', '${APIPASSWORD//\//\\/}')/g" /netcup/config.php
+sed -i "s/('DOMAIN', 'mydomain.com')/('DOMAIN', '${DOMAIN//\//\\/}')/g" /netcup/config.php
+sed -i "s/('HOST', 'server')/('HOST', '${HOST//\//\\/}')/g" /netcup/config.php
+sed -i "s/('USE_IPV6', false)/('USE_IPV6', '${USE_IPV6//\//\\/}')/g" /netcup/config.php
+sed -i "s/('CHANGE_TTL', true)/('CHANGE_TTL', '${CHANGE_TTL//\//\\/}')/g" /netcup/config.php
+sed -i "s~('APIURL', 'https://ccp.netcup.net/run/webservice/servers/endpoint.php?JSON')~('APIURL', '${APIURL}')~g" /netcup/config.php
 
 crontab -l > /tmp/mycron
 echo "${FREQUENCY}" php /netcup/update.php >> /tmp/mycron
