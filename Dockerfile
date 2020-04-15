@@ -1,6 +1,6 @@
 FROM php:cli-alpine
 
-ENV	TZ=Europe/Berlin \
+ENV	TZ="Europe/Berlin" \
 	FREQUENCY="*/5 * * * *" \
 	CUSTOMERNR=12345 \
 	APIKEY=abcdefghijklmnopqrstuvwxyz \
